@@ -20,6 +20,12 @@ namespace API_PDV_Produto.Controllers
         {
             List<ModelProduto> produtos = await _ProdutoRepo.BuscarTodosProdutos();
             return Ok();
-        } 
+        }
+        [HttpGet("id")]
+        public async Task<ActionResult<ModelProduto>> BuscaId(int id)
+        {
+            ModelProduto produto = await _ProdutoRepo.BuscarId(id);
+            return Ok(produto);
+        }
     }
 }
